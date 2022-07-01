@@ -1,0 +1,51 @@
+{% extends "paginas/base_admin.html" %} {% block title %} Editar Persona {% endblock %} {% block content%}
+
+<br>
+<div class="container">
+    <br><br><br>
+
+
+
+    <form action={% url "personasAdd" %} method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <table class="table table-stripped table-hover">
+            <tr>
+                <td>
+                    Id persona : <input type="text" name="idPersona" value="{{persona.idPersona}}"><br>
+                    Nombre Completo: <input type="text" name="nombrePersona" value="{{persona.nombrePersona}}"><br>
+                    usuario: <input type="text" name="usuario" value="{{persona.usuario}}"><br> 
+                    Email : <input type="email" name="email" value="{{persona.email}}"><br>                   
+                    Contrasena : <input type="password" name="contrasena" value="{{persona.contrasena}}"><br>
+                    Tipo Usuario: <input type="text" name="tipoUsuario" value="{{persona.tipoUsuario}}"><br>
+                    Foto Persona : {% if persona.foto %}
+
+                    <input type="file" name="fotoPersona" accept="image/*" value="{{persona.foto.url}}"><br> {%else%}
+                    <input type="file" name="fotoPersona" accept="image/*" value=""><br> {% endif %}
+                </td>
+                <td>
+                    {% if persona.foto %}
+                    <img src="{{persona.foto.url }}" style="width: 250px; height: 250px;" alt="{{persona.foto}}"> {%else%} No hay foto {% endif %}
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="opcion" value="Actualizar">
+        <input type="submit" name="opcion" value="Volver">
+
+        <br>
+    </form>
+
+
+
+    <div id="idMensajes">
+
+        {% if mensaje%}
+        <div class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

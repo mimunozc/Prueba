@@ -1,0 +1,64 @@
+{% extends "paginas/base.html" %} {% block title %} Flor1 {% endblock %} {% block content%}
+{% load static %}
+  
+    <br>
+    {% if user.is_authenticated %}
+    <div id="container">
+      
+        <h2>Descripcion</h2><br><br>
+        <div style="float: left; ;">
+          <img  src="{{ producto.foto.url }}" />
+        </div>
+        <div>
+          <h1 >{{ producto.nombreProducto }}</h1><br>
+        <h3>{{ producto.marcaProducto }}</h3><br>
+        <h3>Precio : $ {{ producto.precio }}</h3><br>
+        <h3>Stock: {{producto.stock}}</h3><br>
+        <h3>Cantidad <input  type="number" max="{{producto.stock}}" min="1"></h3><br><br>
+        <a class="boton" href="{% url 'agregar_flores' producto.idProducto %}"> Agregar Al Carro</a> <br><br>
+        <a class="button"  href="{% url 'flores' %}">Volver</a>
+        
+        </div> 
+        
+      
+
+        
+      
+      
+        
+        
+        <br><br><br><br>
+    </div>
+
+    <br><br><br><br><br><br><br>
+    <div class="ofertas2">
+      
+      <p  style="background-color: #2e5046; color: #2e5046; height: 140px; margin-left: -100px; margin-top: -10px; margin-right: -70px;">a</p>
+    </div>
+
+    <div class="info">
+      <div class="col">
+        <h4 style="text-align: left;">Tienda</h4>
+          <ul style="text-align: left;">
+            <li >
+              <a href="#">Quienes Somos</a>
+            </li>
+            <li>
+              <a href="Login.html">Contacto</a>
+            </li>
+  
+          </ul>
+      </div>
+      {% else %} 
+        
+        <h1 style="text-align: center;">Tienes que loguearte primero para ver esta informacion</h1>
+        <div >
+            
+          <a class="boton"  style="margin-left: 40%;" href="{% url 'loguear' %}">Loguearse</a>
+        </div>
+        
+        
+      
+      {% endif %}
+      
+{% block javascript%} {% endblock %} {% endblock %}

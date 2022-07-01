@@ -1,0 +1,309 @@
+body{
+    margin-top: 10px;
+    margin-left: 80px;
+    margin-right: 80px;
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif ; 
+    color: #686868;
+    
+
+}
+
+
+.navbar{
+    background-color: white !important;
+    border-bottom: 3px solid rgb(0, 0, 0);
+    margin-bottom: 0px;
+    
+}
+
+.nav-item{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 1em;
+}
+
+.carousel-inner{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.carousel-control-prev-icon {
+    
+    margin-left: 140px;
+}
+.carousel-control-next-icon{
+    margin-right: 140px;
+    
+    
+}
+
+
+h5{
+    position: relative;
+    text-align: center;
+    color: #686868;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 1.5em;
+    
+          
+}
+h4{
+    position: relative;
+    text-align: center;
+    color: #686868;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 2.0em;
+          
+}
+
+p {
+    position: relative;
+    text-align: center;
+    color: #686868;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    font-size: 1.0em;
+}
+
+h5::after,h5::before{
+    content: '';
+    position: absolute;
+    width: 410px;
+    height: 1px;
+    background-color: black;
+    top: 0.6em;
+
+}
+
+h5::before{
+    left: 0px;
+}
+
+h5::after{
+    right: 0px;
+}
+
+
+
+h2{
+    
+    color: #686868;
+    font-size: 2.4em;
+      
+}
+
+.h4Total{
+
+    color: #686868;
+    font-size: 2.4em;
+}
+
+.card{
+    width: 2%;
+    margin: 15px;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+    user-select: none;
+    background-color: #2e5046;
+    
+    
+
+}
+
+
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,3);
+    transform: translateY(-2%);
+    
+}
+
+.container-fluid{
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    align-items: center;
+    justify-content: center ;
+    
+}
+
+.container-fluid-productos .card{
+
+    justify-content: center !important;
+    align-items: center;
+    max-width: 1100px;
+    display: flex;
+    width: 100%;
+    
+    
+
+}
+.notification {
+    text-align: center;
+    padding: 2px 2px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.success {
+    background: #3e967c;
+    color: white;
+    margin-bottom: 30px;
+}
+.error {
+    background: #AB3444;
+    color: white;
+    margin-bottom: 20px;
+}
+.card h4{
+
+    margin-top: -10px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    
+    
+}
+
+.card p{
+    margin-bottom: 5px;
+    color: #fff;
+    text-align: center;
+    
+}
+
+.info li a{
+    color: #686868;
+    text-decoration: none;
+    background: transparent;
+    margin-left: -40px; 
+}
+
+
+.info ul{
+   
+    list-style: none outside;
+
+    
+    
+}
+
+.info li{
+    display: list-item;
+
+
+}
+
+img.image{
+    float: left;
+    width: 500px;
+    height: 480px;
+}
+
+.boton {
+    background-color: #4CAF50; 
+    width: 220px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    
+}
+
+.link-carro{
+    
+    width: 45px;
+    border: none;
+    color: white;
+    margin-top: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    
+    
+}
+
+#img-carro{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+
+}
+
+.h2-flores{
+    
+    position: relative;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+
+h2{
+    position: relative;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+}
+
+.ofertas2{
+    margin-top: 80px;
+}
+
+.button {
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background:  #1a2537;
+    padding: 15px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+.map-responsive {
+    overflow:hidden;
+    padding-bottom:320px; /*Reduce este valor si el mapa fuera muy alto, por ejemplo 250px, puedes usar porcentajes, 50%*/
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:100%;
+    width:90%;
+    position:absolute;
+}
+
+th{
+    padding-right: 60px;
+}
+
+#usuario_text{
+    color: #4CAF50;
+}
+
+#salir{
+    color: #AB3444;
+}
+
+
+
+
+
+
+
+
+

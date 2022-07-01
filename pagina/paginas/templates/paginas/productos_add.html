@@ -1,0 +1,70 @@
+{% extends "paginas/base_admin.html" %} {% block title %}Agregar Producto{% endblock %} {% block content%}
+
+<br>
+<h1 style="text-align: center;">Agregar Producto</h1>
+<div class="container">
+    <br><br><br>
+    <form action="productosAdd" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %} 
+
+        <div class="form-row">
+            <div class="form-group col-md-2">
+              <label for="input">Id Producto</label>
+              <input type="text" name="idProducto" class="form-control" id="inputIdUsuario">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="input">Marca Producto</label>
+              <input type="text" name="marcaProducto" class="form-control" id="inputNombreUsuario">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="input">Nombre Producto </label>
+                <input type="text" name="nombreProducto" class="form-control" id="inputNombreUsuario">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                  <label for="inputEmail">Stock</label>
+                  <input type="number" name="stock" value="0" class="form-control" id="inputEmailUsuario" >
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="inputEmail">Precio</label>
+                <input type="number" name="precio" value="0" class="form-control" id="inputEmailUsuario" >
+            </div>
+              
+          </div>
+
+          <div class="form-row">
+              <div class="custom-file mb-3">
+                  <input type="file" name="fotoProducto" class="custom-file-input" id="validatedCustomFile">
+                  <label class="custom-file-label" for="validatedCustomFile">Elije un Archivo</label>
+                  <div class="invalid-feedback">Archivo Invalido</div>
+              </div>
+            
+          </div>
+          
+          <input type="submit" name="opcion" value="Agregar" class="btn btn-primary"> 
+          <input type="submit" name="opcion" value="Editar" class="btn btn-primary"> 
+        <br>
+
+      
+  
+        
+       
+    </form>
+
+    <div id="idMensajes">
+
+        {% if mensaje%}
+        <div class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+
+
+{% block javascript%} {% endblock %} {% endblock %}

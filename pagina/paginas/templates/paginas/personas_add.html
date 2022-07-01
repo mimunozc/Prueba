@@ -1,0 +1,74 @@
+{% extends "paginas/base_admin.html" %} {% block title %}Agregar Persona{% endblock %} {% block content%}
+
+<br>
+<h1 style="text-align: center;">Agregar Usuario</h1>
+<div class="container">
+    <br><br><br>
+    <form action="personasAdd" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %} 
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="input">Id Usuario</label>
+                <input type="text" name="idPersona" class="form-control" id="inputIdUsuario">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="input">Nombre Completo</label>
+                <input type="text" name="nombrePersona" class="form-control" id="inputNombreUsuario">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputEmail">Correo</label>
+                    <input type="email" name="email" class="form-control" id="inputEmailUsuario" >
+                </div>
+                <div class="col-md-6">
+                    <label for="validationDefault04">Tipo De Usuario</label>
+                    <select class="custom-select" name="tipoUsuario" id="tipoUsuario" >
+                      <option selected disabled value="">Opcion</option>
+                      <option>Administrador</option>
+                      <option>Usuario</option>
+                    </select>
+                  </div>
+              
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="input">Usuario</label>
+                    <input type="text" name="usuario" class="form-control" id="inputUsuario">
+                  </div>
+                <div class="form-group col-md-6">
+                    <label for="input">Contraseña</label>
+                    <input type="password" name="contrasena" class="form-control" id="inputContraseñaUsuario">
+                </div>
+                <div class="custom-file mb-3">
+                    <input type="file" name="fotoPersona"class="custom-file-input"  id="validatedCustomFile">
+                    <label class="custom-file-label" for="validatedCustomFile">Elije un Archivo</label>
+                    <div class="invalid-feedback">Archivo Invalido</div>
+                </div>
+              
+            </div>
+            
+            <input type="submit" name="opcion" value="Agregar" class="btn btn-primary"> 
+            <input type="submit" name="opcion" value="Editar" class="btn btn-primary"> 
+          <br>
+
+        
+    </form>
+
+    <div id="idMensajes">
+
+        {% if mensaje%}
+        <div class="alert alert-success" role="alert">
+            {{mensaje}}
+        </div>
+        {% endif %}
+    </div>
+
+</div>
+
+
+
+{% block javascript%} {% endblock %} {% endblock %}

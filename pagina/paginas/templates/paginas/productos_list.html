@@ -1,0 +1,46 @@
+{% extends "paginas/base_admin.html" %} {% block title %}Listar Producto{% endblock %} {% block content%}
+<style>
+    th{
+        padding-right: 40px;
+    }
+</style>
+<br>
+
+<div class="container">
+    
+
+    <h1 style="text-align: center;">Editar Datos de Productos</h1><br>
+
+    <table class="table table-stripped table-hover">
+        {% if productos %}
+        <th>Id Producto</th>
+        <th>Marca Producto</th>
+        <th>Nombre Producto</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>Eliminar</th>
+        <th>Modificar</th>
+
+        {% for x in productos %}
+        <tr>
+            <td> {{ x.idProducto }}
+                <td>{{ x.marcaProducto }}
+                    <td> {{ x.nombreProducto }}
+                        <td> {{ x.stock }}
+                            <td> {{ x.precio }}
+                                <td> <a href="{% url 'productos_del'  pk=x.idProducto %}">Eliminar</a>
+                                    <td> <a href="{% url 'productos_edit' pk=x.idProducto %}">Modificar</a>
+
+
+        </tr>
+        {% endfor %} {% endif %}
+
+        
+            
+        
+    </table>
+    
+    <a  href="{% url 'productosAdd' %}"><button style="margin-top: 30px;">Volver</button></a>
+</div>
+
+{% block javascript%} {% endblock %} {% endblock %}

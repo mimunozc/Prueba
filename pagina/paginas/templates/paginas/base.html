@@ -1,0 +1,138 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block title%} {% endblock %}|Tienda Jadineria</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" rel="stylesheet"/>
+    <link rel="icon" href="/static/imagenes/pagina/Logo.png">
+
+    
+  </head>
+  <body>
+    <p  style="background-color: #2e5046; color: #2e5046; margin-left: -100px; margin-top: -10px; margin-right: -80px; ">a</p>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+      <a class="navbar-brand" href="index"> 
+        <img src="/static/imagenes/pagina/Logo.png" width="70px" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto ml-auto text-center">
+          <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Herramientas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Tijeras de poda</a>
+                <a class="dropdown-item" href="#">Palas</a>
+                <a class="dropdown-item" href="#">Accesorios</a>
+              </div>
+            </li>
+
+            <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Semillas
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'flores' %}">Flores</a>
+                  <a class="dropdown-item" href="#">arbustos</a>
+                  
+                </div>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'maceteros' %}">Maceteros <span class="sr-only">(current)</span></a>
+            </li>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'tierra' %}">Tierras de hojas <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'seguimiento' %}">Sigue tu Compra <span class="sr-only">(current)</span></a>
+          </li>
+
+          {% if user.is_superuser %}
+
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'administrador' %}">Administrador <span class="sr-only">(current)</span></a>
+          </li>
+
+          {% endif %}
+
+        </ul>
+
+          <form  id="buscar"  class="form-inline my-2 my-lg-0">
+            <input  id="buscar1" class="form-control mr-sm-2" type="search"  style="width: 230px;" placeholder="Buscar En Nuestra Tienda" aria-label="Search">
+          </form>
+
+          {% if user.is_authenticated %}
+
+            <ul class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle"  href="#" id="usuario_text" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Bienvenido, {{user.username}}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" id="salir" href="{% url 'logout' %}">Cerrar Sesion</a>
+            </ul>
+            
+
+            {% else %}
+            <a href="{% url 'loguear' %}">
+              <button class="btn btn-outline-success my-1 my-sm-0" type="button" style="margin-right: 10px;">Iniciar Sesion</button>
+            </a>
+
+            {% endif %}
+          <a href ="{% url 'carro' %}"><input type="image" src="/static/imagenes/pagina/carro.png" style="margin-left: 5px;" height="35" width="30"/></a>
+          
+          
+        
+          
+      </div>
+      
+    </nav>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="notification {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %} 
+    {% endif %}
+
+
+    {% block content %} {% endblock %}
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    {% block javascript%} {% endblock %}
+
+    <script>
+        $(document).ready(function() {
+            //$("#cuadro1").hide(1500);
+            // $("#cuadro2").hide(1500);
+            $("#idMensajes").delay(1500).fadeOut("slow");
+            // $("#idErrores").delay(1500).fadeOut("slow"); 
+        });
+    </script>
+
+    
+
+  </body>
+</html>

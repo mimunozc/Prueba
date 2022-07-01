@@ -1,0 +1,110 @@
+cd{% extends "paginas/base.html" %} {% block title %} Carrito {% endblock %} {% block content%}
+{% load static %}
+
+<div class="container">
+    <div>
+        
+        <table class="table table-bordered" style="color: black;">
+        <thead>
+
+            <tr>
+                <th colspan="6" class="text-center">
+
+                    <h2>Carro de Compras</h2>
+
+                </th>
+
+            </tr>
+
+            <tr>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Opciones</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            {% if request.session.carrito.items %}
+                {% for key, value in request.session.carrito.items %} 
+                    <tr class="text-center">
+                        <td> <img src="{{value.imagen}}" width="100px" height="100px"> </td>
+                        <td>{{value.nombre}}</td>
+                        <td>{{value.cantidad}}</td>
+                        <td>
+                            
+                           $ {{value.precio}} 
+                        </td>
+                        <td>
+                            
+
+                            <a href="{% url 'agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                            <a href="{% url 'restar' value.producto_id %}" class="btn btn-sm btn-success">-</a>
+                            <a href="{% url 'eliminar' value.producto_id %}" class="btn btn-sm btn-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+
+                {% endfor %}
+
+            {% else %}
+                <tr>
+
+                    <td colspan="6">
+
+                        <div class="alert alert-danger text-center">
+
+                            <h4>Ups! No hay Productos en tu Carro</h4>
+                            <p>¿Tu Carro Esta Vacío?. !Encuentra Miles De Productos En Nuestras Secciones</p>
+
+                        </div>
+                    </td>
+
+                </tr>
+
+
+            {% endif %}
+
+
+        </tbody>
+
+        <tfoot>
+
+            <tr>
+                <td colspan="6">
+                        <a href="{% url 'limpiar' %}" style="margin-left: 90%;"  class="btn btn-sm btn-danger">Vaciar Todo</a>
+                       
+                    
+                    
+                    <h4 class="h4Total">Total:{{importe_total_carro}}</h4>
+
+                </td>
+
+            </tr>
+
+            {% if request.session.carrito.items %}
+            <tr>
+                <td colspan="6" style="text-align: center;">
+                    <a href="{% url 'pedido' %}" class="btn btn-success">Comprar</a>
+                </td>
+            </tr>
+
+            {% endif %}
+
+        </tfoot>
+        
+        
+        </table>
+    </div>
+</div>
+   
+
+
+    
+{% block javascript%} {% endblock %} {% endblock %}

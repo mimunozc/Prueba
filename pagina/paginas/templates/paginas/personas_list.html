@@ -1,0 +1,48 @@
+{% extends "paginas/base_admin.html" %} {% block title %}Listar Personas{% endblock %} {% block content%}
+<style>
+    th{
+        padding-right: 40px;
+    }
+</style>
+<br>
+
+<div class="container">
+    
+
+    <h1 style="text-align: center;">Editar Datos de Personas</h1><br>
+
+    <table class="table table-stripped table-hover">
+        {% if personas %}
+        <th>Id Persona</th>
+        <th>Nombre Completo</th>
+        <th>Usuario</th>
+        <th>Email</th>
+        <th>Contraseña</th>
+        <th>Tipo Usuario</th>
+        <th>Eliminar</th>
+        <th>Modificar</th>
+
+        {% for x in personas %}
+        <tr>
+            <td> {{ x.idPersona }}
+                <td>{{ x.nombrePersona }}
+                    <td> {{ x.usuario }}
+                        <td> {{ x.email }}
+                            <td> {{ x.contrasena }}
+                                <td>{{ x.tipoUsuario }}</td>
+                                    <td> <a href="{% url 'personas_del'  pk=x.idPersona %}">Eliminar</a>
+                                        <td> <a href="{% url 'personas_edit' pk=x.idPersona %}">Modificar</a>
+
+
+        </tr>
+        {% endfor %} {% endif %}
+
+        
+            
+        
+    </table>
+    
+    <a  href="personasAdd"><button style="margin-top: 30px;">Volver</button></a>
+</div>
+
+{% block javascript%} {% endblock %} {% endblock %}

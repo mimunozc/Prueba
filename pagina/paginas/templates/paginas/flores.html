@@ -1,0 +1,38 @@
+{% extends "paginas/base.html" %} {% block title %} Flores {% endblock %} {% block content%}
+{% load static %}
+
+
+<h2 class="h2-flores" style="text-align: center; margin-bottom: 50px;  margin-top: 40px; ">Semillas de Flores</h2>
+    <div class="container-fluid-productos">
+        <div class="row">
+              {% for producto in productos %}
+                <div class="card" style="width: 15rem;">
+                  <a href="{% url 'desc' pk=producto.idProducto %}">
+                    <img src="{{ producto.foto.url }} " class="card-img-top" alt="...">
+                  </a>
+                  
+                  <div class="card-body">
+                    <h4>{{ producto.marcaProducto }}</h4>
+                    <p class="card-text">{{ producto.nombreProducto }} </p>
+                    <p class="card-text">${{ producto.precio }}</p>
+                    <p class="card-text">
+                      <a class="link-carro" href="{% url 'agregar_flores' producto.idProducto %}">
+                        <img  id="img-carro"src="/static/imagenes/pagina/carro5.png" alt="">
+                      </a>
+                    </p>
+                  
+                  
+                  
+                  </div>
+                </div>
+
+              {% endfor %}
+
+
+
+
+  
+        </div>
+      </div>
+
+{% block javascript%} {% endblock %} {% endblock %}
